@@ -15,19 +15,14 @@ FROM orders_date od
 WHERE o.id = od.order_id;
 
 DROP TABLE product_info;
-
 DROP TABLE orders_date;
-
-ALTER TABLE product
-ADD CONSTRAINT product_pkey PRIMARY KEY (id);
-
-ALTER TABLE orders
-ADD CONSTRAINT orders_pkey PRIMARY KEY (id);
 
 ALTER TABLE order_product
 ADD CONSTRAINT fk_order
-FOREIGN KEY (order_id) REFERENCES orders(id);
+FOREIGN KEY (order_id)
+REFERENCES orders(id);
 
 ALTER TABLE order_product
 ADD CONSTRAINT fk_product
-FOREIGN KEY (product_id) REFERENCES product(id);
+FOREIGN KEY (product_id)
+REFERENCES product(id);
